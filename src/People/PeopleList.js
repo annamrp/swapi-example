@@ -5,7 +5,9 @@ export default class PeopleList extends React.Component {
     if (!this.props.people || this.props.people.length <= 0) return null;
 
     const list = this.props.people.map((person, index) => (
-      <li key={index}>{person.name}</li>
+      <div>
+        <li className="list" key={index}>{person.name} {person.birth_year}</li>
+      </div>
     ));
 
     return <ul>{list}</ul>;

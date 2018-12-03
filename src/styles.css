@@ -4,3 +4,34 @@ body {
   background: black;
   color: yellow;
 }
+
+.button {
+  width: 60px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #fceabb 0%, #fccd4d 23%, #f8b500 53%, #fbdf93 89%, #fbdf93 100%);
+  text-align: center;
+  padding: 2px 0;
+  font-size: 1.5em;
+  color: #000000;
+  margin: 0 15px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.list {
+  list-style: none;
+  margin: 10px 0;
+  background: rgba(252,234,187,.5);
+  border-radius: 5px;
+  width: 300px;
+  padding: 5px 0 5px 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
