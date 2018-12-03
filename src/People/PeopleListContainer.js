@@ -3,16 +3,28 @@ import PeopleList from "./PeopleList";
 import swapi from "../swapi/client";
 
 export default class PeopleListContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { currentPage: 1, data: { results: [] } };
-  }
+    constructor(props) {
+        super(props);
+        this.state = {currentPage: 1, data: {results: []}};
+    }
 
-  componentDidMount() {
-    swapi.getPeople(this.state.currentPage, data => this.setState({ data }));
-  }
+    componentDidMount() {
+        this.loadList();
+    }
 
-  render() {
-    return <PeopleList people={this.state.data.results} />;
-  }
+    loadList() {
+        swapi.getPeople(this.state.currentPage, (response) => {
+            this.setState({
+                data: response
+            });
+        });
+    }
+
+    render() {
+        return (
+            <div>
+                <PeopleList people={this.state.data.results}/>
+            </div>
+        );
+    }
 }
