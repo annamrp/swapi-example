@@ -38,13 +38,13 @@ export default class PeopleListContainer extends React.Component {
     }
 
     render() {
-        const {currentPage} = this.state;
+        const {currentPage, data} = this.state;
         return (
             <div className="container">
-                <PeopleList people={this.state.data.results}/>
+                <PeopleList people={data.results}/>
                 <div className="btn-container">
-                    <Buttons onClick={this.handleUp}>+</Buttons>
                     { currentPage >1 ? <Buttons onClick={this.handleDown}>-</Buttons> : null }
+                     <Buttons onClick={this.handleUp}>+</Buttons>
                 </div>
             </div>
         );
