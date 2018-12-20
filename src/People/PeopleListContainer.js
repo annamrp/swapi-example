@@ -42,7 +42,7 @@ export default class PeopleListContainer extends React.Component {
     const { currentPage, data, isLoading } = this.state;
     return (
       <div>
-        {isLoading ? <div className="load"><img src="img/loading.png" alt="loading page"/></div> : <div className="container">       
+        {isLoading ? <div className="loading"><img src="img/loading.png" alt="loading page"/></div> : <div className="container">       
             <PeopleList people={data.results} />
             <div className="btn-container">
               {currentPage > 1 ? <Buttons onClick={this.handleDown}>&lt;&lt;</Buttons> : null}
