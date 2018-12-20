@@ -2,18 +2,29 @@ body {
   font-family: monospace;
   font-size: 16px;
   background: black;
-  color: yellow;
+  color: rgb(245, 230, 182);
+  background: url('https://wallpapertag.com/wallpaper/full/f/a/9/103889-gorgerous-hd-star-wars-wallpaper-1920x1080-mac.jpg');
+  /* background-size: cover; */
+  /* background-repeat: no-repeat;
+  background-position: fixed; */
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  /* background-color: black; */
+  
 }
+ul{color: #f1dea1;}
 
 .button {
   width: 60px;
   border-radius: 10px;
-  background: linear-gradient(to right, #fceabb 0%, #fccd4d 23%, #f8b500 53%, #fbdf93 89%, #fbdf93 100%);
+  background: linear-gradient(to right, #fceabb 0%, #f1dea1 23%, #a5986e 53%, #fbdf93 89%, #fbdf93 100%);
   text-align: center;
   padding: 2px 0;
   font-size: 1.5em;
   color: #000000;
   margin: 0 15px;
+  color: rgb(75, 72, 72);
 }
 
 .btn-container {
@@ -21,20 +32,24 @@ body {
   margin-top: 15px;
 }
 
-ul {
+.people-list {
   margin: 0;
   padding: 0;
 }
 
 .list {
   list-style: none;
-  margin: 10px 0;
-  background: rgba(252,234,187,.5);
+  margin: 10px 0 0 0;
+  background: rgba(160, 158, 151, 0.7);
   border-radius: 5px;
+  border: solid 0.5px;
   width: 400px;
   padding: 10px 10px;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.5em;
+  text-shadow: .5px .5px .2px rgb(12, 12, 12);
+  box-shadow:0 1px 4px rgba(107, 99, 73, 0.8), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  
 }
 
 .container {
@@ -43,4 +58,11 @@ ul {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.detail {
+  background: rgba(87, 87, 87, 0.7);
+  border-radius: 10px;
+  padding: 1px 15px 15px 15px;
+  text-shadow: .6px .6px .6px rgb(12, 12, 12);
 }

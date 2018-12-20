@@ -26,7 +26,7 @@ export default class PeopleDetail extends Component {
           filmsList: this.state.filmsList.concat(response)
         });
       });
-    },  this.setState({
+    }, this.setState({
     isLoading: false
     }))   
   }
@@ -48,7 +48,8 @@ export default class PeopleDetail extends Component {
           <p>Name: {person.name}</p>
           <p>Birth year: {person.birth_year}</p>
           <p>Gender: {person.gender}</p>
-          <ul>Films: {this.renderFilms()}</ul>
+          <p>Films:</p>
+          <ul>{this.renderFilms()}</ul>
         </div>}
       </div>
     )

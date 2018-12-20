@@ -32,6 +32,6 @@ export default class PeopleList extends React.Component {
         </div>
     ));
 
-    return <ul>{list}</ul>;      
+    return <ul className="people-list">{list}</ul>;      
   }
 }

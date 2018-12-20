@@ -43,8 +43,8 @@ export default class PeopleListContainer extends React.Component {
             <div className="container">
                 <PeopleList people={data.results}/>
                 <div className="btn-container">
-                    { currentPage >1 ? <Buttons onClick={this.handleDown}>-</Buttons> : null }
-                     <Buttons onClick={this.handleUp}>+</Buttons>
+                    { currentPage >1 ? <Buttons onClick={this.handleDown}>&lt;&lt;</Buttons> : null }
+                     <Buttons onClick={this.handleUp}>&gt;&gt;</Buttons>
                 </div>
             </div>
         );
