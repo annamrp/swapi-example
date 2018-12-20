@@ -44,8 +44,7 @@ export default class PeopleDetail extends Component {
 
     return (
       <div className="detail">
-      {isLoading ? null : <div>
-          <p>Name: {person.name}</p>
+      {isLoading ? <div className="load"><img src="img/loading.png" alt="loading page"/></div> : <div>
           <p>Birth year: {person.birth_year}</p>
           <p>Gender: {person.gender}</p>
           <p>Films:</p>
