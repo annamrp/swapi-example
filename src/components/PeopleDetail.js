@@ -31,13 +31,13 @@ export default class PeopleDetail extends Component {
         Swapi.getSpecies(speciesId, response => {
           this.setState({
             personSpecies: response,
-            isLoading: false
           },
             films.forEach(film => {
               let filmId = film.match(/[0-9]+/)
               Swapi.getFilm(filmId, response => {
                 this.setState({
-                  filmsList: this.state.filmsList.concat(response)
+                  filmsList: this.state.filmsList.concat(response),
+                  isLoading: false
                 });
               });
             }) 
