@@ -8,6 +8,7 @@ export default class PeopleDetail extends Component {
     isLoading: true,
     filmsList: [],
     personSpecies: null,
+    personHomeworld: null
   }
 
   componentDidMount(){   
@@ -15,31 +16,37 @@ export default class PeopleDetail extends Component {
       isLoading: true
     })
     this.load()
-    // this.setState({
-    //   isLoading: false
-    //   })
   }
 
   load(){ 
-    const {films, species} = this.props.person;
-    
-    films.forEach(film => {
-      let filmId = film.match(/[0-9]+/)
-      Swapi.getFilm(filmId, response => {
-        this.setState({
-          filmsList: this.state.filmsList.concat(response)
-        });
-      });
-    }) 
-    
-    let speciesId = species[0].match(/[0-9]+/)
-    Swapi.getSpecies(speciesId, response => {
+    const {films, species, homeworld} = this.props.person;
+
+    const homeworldId = homeworld.match(/[0-9]+/)
+    const speciesId = species[0].match(/[0-9]+/)
+
+    Swapi.getPlanet(homeworldId, response => {
       this.setState({
-        personSpecies: response,
-        isLoading: false
-      })
+        personHomeworld: response
+      },
+        Swapi.getSpecies(speciesId, response => {
+          this.setState({
+            personSpecies: response,
+            isLoading: false
+          },
+            films.forEach(film => {
+              let filmId = film.match(/[0-9]+/)
+              Swapi.getFilm(filmId, response => {
+                this.setState({
+                  filmsList: this.state.filmsList.concat(response)
+                });
+              });
+            }) 
+          )
+        })
+      )
     })
-  }
+  } 
+ 
 
   renderFilms(){
     const {filmsList} = this.state;
@@ -50,14 +57,16 @@ export default class PeopleDetail extends Component {
 
   render() {
     const {person} = this.props;
-    const {isLoading, personSpecies} = this.state;
+    const {isLoading, personSpecies, personHomeworld} = this.state;
 
     return (
       <div className="detail">
       {isLoading ? <div className="small-loading"><img src="img/loading.png" alt="loading page"/></div> : <div>
           {/* <p>Birth year: {person.birth_year}</p> */}
+          <p>Homeworld: {personHomeworld.name}</p>
           <p>Species: {personSpecies.name}</p>
           <p>Gender: {person.gender}</p>
+          <p>Language: {personSpecies.language}</p>
           <p>Films:</p>
           <ul>{this.renderFilms()}</ul>
         </div>}
