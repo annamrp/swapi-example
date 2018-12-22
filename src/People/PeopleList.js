@@ -1,5 +1,5 @@
 import React from "react";
-import PeopleDetail from "../components/PeopleDetail";
+import PeopleDetail from "./PeopleDetail";
 
 export default class PeopleList extends React.Component {
 

@@ -47,7 +47,6 @@ export default class PeopleDetail extends Component {
     })
   } 
  
-
   renderFilms(){
     const {filmsList} = this.state;
     return filmsList.map((film,index) => {
