@@ -79,7 +79,16 @@ body {
 .detail {
   background: rgba(61, 61, 61, 0.8);
   border-radius: 10px;
-  padding: 1px 15px 15px 15px;
+  padding: 15px 15px 15px 15px;
   text-shadow: .6px .6px .6px rgb(12, 12, 12);
   text-transform: capitalize;
+}
+
+p {
+  margin: 5px 0;
+  font-size: 1.1em
+}
+
+ul {
+padding-left: 80px;
 }

@@ -20,29 +20,35 @@ export default class PeopleDetail extends Component {
 
   load(){ 
     const {films, species, homeworld} = this.props.person;
-
-    const homeworldId = homeworld.match(/[0-9]+/)
-    const speciesId = species[0].match(/[0-9]+/)
+    const homeworldId = homeworld.match(/[0-9]+/);
+    let speciesId;
+    
+    if(species[0] === undefined){
+      this.setState({
+        personSpecies: {name: 'n/a', language: 'n/a'}
+      });
+    }else{
+      speciesId = species[0].match(/[0-9]+/)
+      Swapi.getSpecies(speciesId, response => {
+        this.setState({
+          personSpecies: response,
+        })
+      })
+    }
 
     Swapi.getPlanet(homeworldId, response => {
       this.setState({
         personHomeworld: response
       },
-        Swapi.getSpecies(speciesId, response => {
-          this.setState({
-            personSpecies: response,
-          },
-            films.forEach(film => {
-              let filmId = film.match(/[0-9]+/)
-              Swapi.getFilm(filmId, response => {
-                this.setState({
-                  filmsList: this.state.filmsList.concat(response),
-                  isLoading: false
-                });
-              });
-            }) 
-          )
-        })
+        films.forEach(film => {
+          let filmId = film.match(/[0-9]+/)
+          Swapi.getFilm(filmId, response => {
+            this.setState({
+              filmsList: this.state.filmsList.concat(response),
+              isLoading: false
+            });
+          });
+        }) 
       )
     })
   } 
@@ -61,7 +67,6 @@ export default class PeopleDetail extends Component {
     return (
       <div className="detail">
       {isLoading ? <div className="small-loading"><img src="img/loading.png" alt="loading page"/></div> : <div>
-          {/* <p>Birth year: {person.birth_year}</p> */}
           <p>Homeworld: {personHomeworld.name}</p>
           <p>Species: {personSpecies.name}</p>
           <p>Gender: {person.gender}</p>
