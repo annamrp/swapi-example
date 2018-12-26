@@ -21,14 +21,13 @@ export default class PeopleDetail extends Component {
   load(){ 
     const {films, species, homeworld} = this.props.person;
     const homeworldId = homeworld.match(/[0-9]+/);
-    let speciesId;
     
     if(species[0] === undefined){
       this.setState({
         personSpecies: {name: 'n/a', language: 'n/a'}
       });
     }else{
-      speciesId = species[0].match(/[0-9]+/)
+      const speciesId = species[0].match(/[0-9]+/)
       Swapi.getSpecies(speciesId, response => {
         this.setState({
           personSpecies: response,
