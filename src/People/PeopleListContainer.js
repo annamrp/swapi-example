@@ -2,11 +2,18 @@ import React from "react";
 import PeopleList from "./PeopleList";
 import swapi from "../swapi/client";
 import Buttons from "../components/Buttons";
+import Searchbar from "../components/Searchbar";
 
 export default class PeopleListContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currentPage: 1, data: { results: [] }, isLoading: true };
+    this.state = { 
+      currentPage: 1, 
+      data: { results: [] }, 
+      isLoading: true ,
+      inputSearch: '',
+      character: null
+    };
   }
 
   componentDidMount() {
@@ -38,17 +45,38 @@ export default class PeopleListContainer extends React.Component {
     }
   };
 
+  handleInput = event => {
+    const {inputSearch} = this.state
+    this.setState({
+      inputSearch: event.target.value
+    },
+      event.persist(),
+      swapi.searchCharacter(inputSearch, response => {
+        const filteredChar = response.results.filter(char => {
+          return char.name.toLowerCase().includes(this.state.inputSearch.toLowerCase())
+        })
+        this.setState({
+          character: filteredChar,
+        })
+      }) 
+    )
+  }
+
   render() {
-    const { currentPage, data, isLoading } = this.state;
+    const { currentPage, data, isLoading, inputSearch, character } = this.state;
     return (
       <div className="main">
         {isLoading ? <div className="loading"><img src="img/loading.png" alt="loading page"/></div> : <div className="container">       
+          <Searchbar value={inputSearch} onChange={this.handleInput}/>
+          {inputSearch ? <PeopleList people={character}/> : <div>
             <PeopleList people={data.results} />
             <div className="btn-container">
               {currentPage > 1 ? <Buttons onClick={this.handleDown}>&lt;&lt;</Buttons> : null}
-              {currentPage < 9 ? <Buttons onClick={this.handleUp}>&gt;&gt;</Buttons> : null}
-            </div>
+              {currentPage < 9 ? <Buttons onClick={this.handleUp}>&gt;&gt;</Buttons> : null}           
+            </div> 
           </div>
+          }
+        </div>
         }
       </div>
     );

@@ -47,6 +47,12 @@ function pluralRequestGenerator(path) {
   };
 }
 
+function search (path) {
+  return function (searchTerm, cb) {
+    request (rootURL + path + "/?search=" + searchTerm, cb)
+  };
+}
+
 export default {
   getResources: getResources,
   getPerson: singularRequestGenerator("people"),
@@ -60,5 +66,6 @@ export default {
   getStarship: singularRequestGenerator("starships"),
   getStarships: pluralRequestGenerator("starships"),
   getVehicle: singularRequestGenerator("vehicles"),
-  getVehicles: pluralRequestGenerator("vehicles")
+  getVehicles: pluralRequestGenerator("vehicles"),
+  searchCharacter: search("people")
 };

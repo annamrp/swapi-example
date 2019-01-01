@@ -24,7 +24,7 @@ body {
 }
 
 .small-loading, .small-loading img {
-  width: 300px;
+  width: 350px;
   border: none;
   padding-top: 10px;
   margin: 0 auto;
@@ -44,6 +44,7 @@ body {
 
 .btn-container {
   display: flex;
+  justify-content: center;
   margin-top: 15px;
 }
 
@@ -67,13 +68,18 @@ body {
   
 }
 
+/* .main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+} */
 .container {
-  margin: 5% 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  margin: 5% 0;
 }
 
 .detail {
@@ -92,3 +98,27 @@ p {
 ul {
   padding-left: 80px;
 }
+
+.icon {
+  width: 20px;
+}
+
+.input {
+  width: 415px;
+  border-radius: 30px;
+  border: .5px solid;
+  height: 40px;
+  font-size: 1.8em;
+  background: transparent;
+  text-align: center;
+  color: rgb(245, 230, 182);
+  font-family: monospace;
+  margin-bottom: 15px;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0px 0px 2px 2px rgb(245, 230, 182);
+}
+
+::-webkit-input-placeholder { color: rgba(245, 230, 182, .5)}

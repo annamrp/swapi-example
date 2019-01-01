@@ -24,7 +24,7 @@ export default class PeopleList extends React.Component {
     const {personDetail} = this.state;
 
     if (!this.props.people || this.props.people.length <= 0) return null;
-
+    
     const list = this.props.people.map((person, index) => (
         <div key={index}>
           <li onClick={() => {this.getPersonInfo(person)}} className="list" >{person.name}</li>
