@@ -8,7 +8,7 @@ export default class Searchbar extends Component {
     return (
       <div>
         <form className="search-form" >
-          <input onChange={ this.props.onChange } autocomplete="off" type="text" className="input" placeholder="Search character" required />
+          <input onChange={ this.props.onChange } autoComplete="off" type="text" className="input" placeholder="Search character" required />
         </form>
       </div>
     )

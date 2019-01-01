@@ -68,18 +68,12 @@ body {
   
 }
 
-/* .main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-} */
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 5% 0;
+  padding: 3% 0;
 }
 
 .detail {
@@ -113,7 +107,7 @@ ul {
   text-align: center;
   color: rgb(245, 230, 182);
   font-family: monospace;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 input:focus {

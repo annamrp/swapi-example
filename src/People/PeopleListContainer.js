@@ -37,8 +37,8 @@ export default class PeopleListContainer extends React.Component {
   };
 
   handleDown = () => {
-    const { currentPage } = this.state;
-    if (currentPage > 1) {
+    const { currentPage, data } = this.state;
+    if (data.previous) {
       this.setState({
           currentPage: currentPage - 1
         }, this.loadList);
@@ -71,8 +71,8 @@ export default class PeopleListContainer extends React.Component {
           {inputSearch ? <PeopleList people={character}/> : <div>
             <PeopleList people={data.results} />
             <div className="btn-container">
-              {currentPage > 1 ? <Buttons onClick={this.handleDown}>&lt;&lt;</Buttons> : null}
-              {currentPage < 9 ? <Buttons onClick={this.handleUp}>&gt;&gt;</Buttons> : null}           
+              {data.previous ? <Buttons onClick={this.handleDown}>&lt;&lt;</Buttons> : null}
+              {data.next ? <Buttons onClick={this.handleUp}>&gt;&gt;</Buttons> : null}           
             </div> 
           </div>
           }
