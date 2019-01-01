@@ -49,8 +49,9 @@ export default class PeopleListContainer extends React.Component {
     const {inputSearch} = this.state
     this.setState({
       inputSearch: event.target.value
-    },
-      event.persist(),
+    },   
+      // event.preventDefault(),
+      // event.persist(),
       swapi.searchCharacter(inputSearch, response => {
         const filteredChar = response.results.filter(char => {
           return char.name.toLowerCase().includes(this.state.inputSearch.toLowerCase())

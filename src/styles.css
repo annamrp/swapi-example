@@ -51,6 +51,9 @@ body {
 .people-list {
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .list {
@@ -65,7 +68,12 @@ body {
   font-size: 1.5em;
   text-shadow: .6px .6px .6px rgb(12, 12, 12);
   box-shadow:0 1px 4px rgba(107, 99, 73, 0.8), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  
+}
+
+.list:hover {
+  font-size: 1.8em;
+  color: #FFF4D6;
+  padding: 7px 10px;
 }
 
 .container {
