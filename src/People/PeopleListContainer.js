@@ -64,7 +64,7 @@ export default class PeopleListContainer extends React.Component {
   }
 
   render() {
-    const { currentPage, data, isLoading, inputSearch, character } = this.state;
+    const { data, isLoading, inputSearch, character } = this.state;
     return (
       <div className="main">
         {isLoading ? <div className="loading"><img src="img/loading.png" alt="loading page"/></div> : <div className="container">       
